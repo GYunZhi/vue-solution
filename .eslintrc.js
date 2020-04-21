@@ -19,6 +19,9 @@ module.exports = {
   plugins: [
     'vue'
   ],
+  'globals': {
+    'MathJax': true
+  },
   // add your custom rules here
   rules: {
     // allow async-await

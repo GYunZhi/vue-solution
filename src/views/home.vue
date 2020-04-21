@@ -1,10 +1,14 @@
 <template>
   <div class="home">
     <h1>vue项目中集成 pdf 和 office 预览功能</h1>
-
     <div class="nav">
       <router-link  :to="{ name: 'pdf' }">pdf预览</router-link>
       <router-link :to="{ name: 'office' }">office预览</router-link>
+    </div>
+
+    <h1>vue项目中集成 MathJax 显示数学公式</h1>
+    <div class="nav">
+      <router-link  :to="{ name: 'mathml' }">数学公式预览</router-link>
     </div>
   </div>
 </template>

@@ -5,6 +5,8 @@ import home from '@/views/home'
 import pdf from '@/views/pdf'
 import office from '@/views/office'
 
+import mathml from '@/views/mathml'
+
 Vue.use(Router)
 
 export default new Router({
@@ -23,6 +25,11 @@ export default new Router({
       path: '/office',
       name: 'office',
       component: office
+    },
+    {
+      path: '/mathml',
+      name: 'mathml',
+      component: mathml
     }
   ]
 })
