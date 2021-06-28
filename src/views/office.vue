@@ -2,23 +2,23 @@
   <div class="pdf">
     <div class="item">
       <h2>word预览</h2>
-      <c-office-preview :url="word"></c-office-preview>
+      <office-preview :url="word"></office-preview>
     </div>
 
     <div class="item">
       <h2>excel预览</h2>
-      <c-office-preview :url="excel"></c-office-preview>
+      <office-preview :url="excel"></office-preview>
     </div>
 
     <div class="item">
       <h2>ppt预览</h2>
-      <c-office-preview :url="ppt"></c-office-preview>
+      <office-preview :url="ppt"></office-preview>
     </div>
   </div>
 </template>
 
 <script>
-import COfficePreview from '../components/COfficePreview'
+import OfficePreview from '../components/OfficePreview'
 export default {
   name: 'pdf',
   data () {
@@ -29,7 +29,7 @@ export default {
     }
   },
   components: {
-    COfficePreview
+    OfficePreview
   }
 }
 </script>

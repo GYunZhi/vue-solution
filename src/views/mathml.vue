@@ -35,7 +35,7 @@ export default {
   mounted () {
     // 渲染数学公式
     this.$nextTick(() => {
-      MathJax.Hub.Queue(['Typeset', MathJax.Hub, document.getElementById('app')])
+      MathJax && MathJax.Hub.Queue(['Typeset', MathJax.Hub, document.getElementById('app')])
     })
   }
 }

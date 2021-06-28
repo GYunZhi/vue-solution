@@ -33,7 +33,7 @@
 <script>
 // import { resourceUrl } from '@/utils/constant'
 export default {
-  name: 'c-office-preview',
+  name: 'OfficePreview',
   props: {
     url: {
       type: String

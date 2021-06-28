@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'c-pdf-preview',
+  name: 'PdfPreview',
   props: {
     url: {
       type: String
