@@ -1,12 +1,18 @@
 <template>
   <div id="app">
+    <el-page-header @back="goBack" content="详情页面"></el-page-header>
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    goBack () {
+      console.log('go back')
+    }
+  }
 }
 </script>
 

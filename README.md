@@ -8,7 +8,7 @@
 
 目前很多项目都有 pdf 和 office 文件预览功能，有一些服务商也提供专业的在线预览服务，但是如果你的项目只是需要实现简单的预览需求，那么自己集成是一个不错的选择，毕竟免费啊，不香嘛。
 
-### 预览pdf
+### 预览 pdf 文件
 
 #### 工具
 
@@ -34,36 +34,41 @@ pdf.js，去官网[下载](http://mozilla.github.io/pdf.js/)之后解压，解�
 
 #### 预览
 
-本地文件预览
+**本地文件预览**
 
-可以把文件放在 static 文件夹中，然后把路径传到组件中就可以了
+可以把文件放在 static 文件夹中，然后把路径传到组件中就可以了。
 
 ```js
 <c-pdf-preview :url="'/static/ts.pdf'"></c-pdf-preview>
 ```
 
-远程文件预览
+**远程文件预览**
 
-如果预览的是远程文件，有两个地方需要注意：
+如果预览的是远程文件，需要注意跨域问题，解决跨域问题有两种方案：
 
-1. 解决跨域问题，对于跨域问题，有两种解决方案，第一种是配置CORS，设置一下 `Access-Control-Allow-Origin`；第二种让后台返回一个流的形式的pdf，pdf.js插件是可以识别的，也不会报跨域问题。这两种方式都需要后端配合。
-2. 远程文件和服务器不在一个域名下时，例如远程文件是一个 OSS 地址，会出现下面的报错：
+1、第一种是配置CORS，设置一下 `Access-Control-Allow-Origin`，并注释 viewer.js 中的代码；
 
 ```js
-Error: file origin does not match viewer's
-
-# 解决办法：注释掉这个抛错的代码就可以了
+// viewer.js
 if (origin !== viewerOrigin && protocol !== 'blob:') {
     // 处理跨域问题
     // throw new Error('file origin does not match viewer\'s');
 }
 ```
 
+> 不注释 viewer.js 中的代码会报错：Error: file origin does not match viewer's
+
+2、第二种让后台返回一个流的形式的 pdf，pdf.js插件是可以识别的，也不会报跨域问题。
+
+这两种方式都需要后端配合。
+
 ### 预览 office 文件
 
 #### 工具
 
-对于 office 文件，需要借助微软的 Office Online 在线预览Office文档
+对于 office 文件，需要借助微软的 Office Online 在线预览Office文档。
+
+> 如果是内部项目，可以自己在内网部署 [Office Online Server](https://docs.microsoft.com/zh-cn/officeonlineserver/deploy-office-online-server)
 
 #### 组件
 
@@ -219,21 +224,21 @@ window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')
 
 ```js
 mounted () {
-	// 渲染数学公式
-	this.$nextTick(() => {
-		MathJax.Hub.Queue(['Typeset', MathJax.Hub, document.getElementById('app')])
-	})
+  // 渲染数学公式
+  this.$nextTick(() => {
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub, document.getElementById('app')])
+  })
 }
 
 updated () {
-	// 渲染数学公式
-	this.$nextTick(() => {
-		MathJax.Hub.Queue(['Typeset', MathJax.Hub, document.getElementById('app')])
-	})
+  // 渲染数学公式
+  this.$nextTick(() => {
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub, document.getElementById('app')])
+  })
 }
 ```
 
-### 题外话
+### 温馨提示
 
 上面我们是通过 BootCDN 加载 MathJax，一般来说问题不大。**但是，重点来了，BootCDN 有时候不稳定，毕竟是免费的，要求不能太高啊**，如果你的网站访问量比较大，建议去[官网](https://github.com/mathjax/MathJax)下载 MathJax 压缩包，解压后放在自己公司的 CDN 或者 OSS 上。
 

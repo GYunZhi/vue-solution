@@ -19,7 +19,7 @@ export default {
   data () {
     return {
       local: '/static/ts.pdf', // 本地资源
-      urlAccess: 'http://image.cache.timepack.cn/nodejs.pdf', // 远程资源，跨域可访问
+      urlAccess: 'https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf', // 远程资源，跨域可访问
       urlUnAccess: 'https://gongyz.oss-cn-shenzhen.aliyuncs.com/files/TypeScript语法.pdf' // 远程资源，跨域不可访问
     }
   },
