@@ -15,7 +15,7 @@
 
 <script>
 import pdfjsLib from '../../static/pdf/build/pdf'
-import pdfjsWorker from '../../static/pdf1/build/pdf.worker'
+import pdfjsWorker from '../../static/pdf/build/pdf.worker'
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
 export default {
